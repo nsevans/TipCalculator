@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device.width">
+
+        <title>Tip Calculator</title>
+        
+        <link rel="shortcut icon" href="/static/favicon.ico">
+        <!-- <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" type="text/css" href="/static/css/_main.css"></link>
+    </head>
+
+    <body>
+
+        <div id="app">
+        <h1>Settings</h1>
+        <h3>Employees</h3>
+        <p>Current list of employees that can collect tips.</p>
+        <label id='warning-msg-1' class='warning-msg'>Make sure all employee's names are exactly the same as in the report! (First and Last)</label>
+        <!-- OUTPUT TABLE -->
+            <div id="settings-table-div">
+                <table id="employee-output-table" >
+                    <thead>
+                        <tr>
+                            <th v-on:click="sortTable()"><div class="header">Employee Name</div></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    
+                    <tr v-for="e in employee_names">
+                        <td>{{e}}</td>
+                        <td>
+                            <div class='btn table-btn table-btn-remove' v-on:click="removeEmployee(e)">Remove</div>
+                        </td>
+                    </tr>
+                    <tr id='add-row'>
+                        <td><input id='newName' type='text' placeholder='Name'/></td>
+                        <td>
+                            <div class="btn table-btn"  v-on:click="addEmployee">Add</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <label id="add-error" class="error-msg">{{add_error}}</label>
+
+            <button id="settings-btn" v-on:click="saveSettings();">Save Settings</button>
+
+            <button id="back-btn" v-on:click="backToMain();">Back</button>
+
+            <p>
+            
+            </p>
+
+        </div>
+
+
+        <script src="/static/js/axios.min.js"></script>
+        <script src="/static/js/vue.min.js"></script>
+        <script src="/static/js/settings.js"></script>
+    </body>
+</html>
+
+<!-- 
+    Created By: Nicholas Evans
+    Project Start Date: May 19th, 2020
+-->

@@ -1,0 +1,2 @@
+pyinstaller -c -F --noconsole --add-data "./src/config;/src/config" --add-data "./src/logs;/src/logs" --add-data "./src/resources;/src/resources" --add-data  "./src/static;/src/static" --noupx --name "Tip Calculator" ./src/app.py
+copy ".\dist\Tip Calculator.exe" .\src

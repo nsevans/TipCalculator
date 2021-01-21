@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device.width">
+
+        <title>Tip Calculator</title>
+        
+        <link rel="shortcut icon" href="/static/favicon.ico">
+        <!-- <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" type="text/css" href="/static/css/_main.css"></link>
+    </head>
+
+    <body>
+
+        <div id="app">
+            <h1>TIP CALCULATOR</h1>
+            <p>
+                Enter the total number of tips made, then select a payroll report, and hit "Calculate Tips"!
+            </p>
+
+            <label id='warning-msg-1' class='warning-msg'>{{warning_msg}}</label>
+
+            <!-- OUTPUT TABLE -->
+            <div id="output-div">
+                <table id="employee-output-table" >
+                    <thead>
+                        <tr>
+                            <th v-on:click="sortTable(0)"><div class="header">ID</div></th>
+                            <th v-on:click="sortTable(1)"><div class="header">Name</div></th>
+                            <th v-on:click="sortTable(2)"><div class="header">Hours</div></th>
+                            <th v-on:click="sortTable(2)"><div class="header">Tip Percent</div></th>
+                            <th v-on:click="sortTable(2)"><div class="header">Tip Amount</div></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    
+                    <tr v-for="e in employee_data">
+                        <td>{{e.id}}</td>
+                        <td>{{e.name}}</td>
+                        <td>{{e.hours}}</td>
+                        <td>{{e.percent}}</td>
+                        <td>{{e.amount}}</td>
+                        <td>
+                            <div class='btn table-btn-remove' v-on:click="removeEmployee(e.id)">Remove</div>
+                        </td>
+                    </tr>
+                    <tr id='add-row'>
+                        <td><input id='newID' type='text' placeholder='ID'/></td>
+                        <td><input id='newName' type='text' placeholder='Name'/></td>
+                        <td><input id='newHours' type='text' placeholder='Hours'/></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <div class="btn table-btn"  v-on:click="addEmployee">Add</div>
+                        </td>
+                    </tr>
+                    <tr id='stat-row'>
+                        <td  v-for="s in stats">{{s}}</td>
+                    </tr>
+                </table>
+            </div>
+            <label id="add-error" class="error-msg">{{add_error}}</label>
+
+            <label id='warning-msg-2' class='warning-msg'>{{warning_msg}}</label>
+
+            <!-- INPUT FORM -->
+            <div id="input-div">
+                <form class="form-container" id="input-form">
+                    <div>
+                        <label for="total-tips" class="form-lbl">Total Tips</label>
+                        <input type="text" id="total-tips" autocomplete="off" placeholder="Ex: 10 or 10.53"/>
+                        <label id="tip-error" class="error-msg">{{tip_error}}</label>
+                    </div>
+
+                    <div>
+                        <label class="form-lbl">Payroll Report</label>
+                        <input type="file" id="file" accept="application/pdf"/>
+                        <label id="file-error" class="error-msg">{{file_error}}</label>
+                    </div>
+                    
+                    <button type="button" id="generate" class="btn" v-on:click="sendFile">Calculate Tips</button>
+                    <button type="submit" id="reset" class="btn" v-on:click="resetInputs" >Reset</button>
+                </form>
+                
+            </div>
+
+            <button id="settings-btn" v-on:click="openSettings();">Settings</button>
+
+        </div>
+        <!--
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        -->
+        
+        <script src="/static/js/axios.min.js"></script>
+        <script src="/static/js/vue.min.js"></script>
+        <script src="/static/js/index.js"></script>
+    </body>
+</html>
+
+<!-- 
+    Created By: Nicholas Evans
+    Project Start Date: May 19th, 2020
+-->

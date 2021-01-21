@@ -1,0 +1,70 @@
+Date: Saturday, June 27th 2020
+
+Server Version 1.1                          
+ 	- Initial Release
+
+Client Version 1.1
+    - Initial Release                          
+
+#####################################################################
+
+Date: Wednesday, July 1st 2020
+
+Server Version 1.1.2                       
+    - Added createdby endpoint                  
+    - Added and removed some event logging
+
+Client Version 1.1.2												  
+	- Updated Add and Remove buttons to be smaller
+	- Removed functionality of pressing the enter key
+	to submit a form as it was causing problems
+	- Added local versions of Axios and Vue so no
+	internet is required to run
+
+#####################################################################
+
+Date: Wednesday, September 2nd 2020
+
+Server Version 1.1.3
+	- Updated PDF text parsing to better handle Payroll Reports
+	- Fixed some issues with conversion from string to int
+
+Client Version 1.1.3
+	- Added new warning message to review list of employees before 
+	dividing tips
+
+#####################################################################
+
+Date: Saturday, October 3rd 2020
+
+Server Version 1.2
+	- Reworked employee data parsing to better work with new report format
+	and should break a lot less
+	- Changed try/except blocks for better catching, instead of just throwing
+	a 500 Server error
+	- 500 Server errors not have messages that state what went wrong
+	- Added user settings that can be updated and then written back to file
+	- Reformatted docstrings for uniformity
+
+Client Version 1.2
+	- Added settings page where user can add and remove employees and change
+	rounding threshold
+
+#####################################################################
+
+Date: Monday, December 22nd 2020
+
+Server Version 1.2.1
+	- Split up all python files from the one main god file and put into /common
+	- Added extra functionality to keep alive token for initial timeout
+	before receiving the first token
+	- Added endpoint to view changelog in browser (/changelog)
+	- Fixed issue where user setting changes weren't being properly saved
+	- Changed detail of logging for when settings are updated
+	- Added new rotating file handler for logging events, errors and tracback 
+	calls
+	- Added unit testing for some basic functions 
+
+Client Version 1.2.1
+	- Added additional warnings when adding new employees to the predefined
+	list of employees
