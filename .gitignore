@@ -6,7 +6,7 @@ src/config/settings_default.json
 src/Tip\ Calculator.exe
 "src/Tip Calculator.exe"
 src/common/__pycache__/
-src/resources/
+src/resources/test_reports
 "Tip Calculator.spec"
 Tip\ Calculator.spec
 TODO.txt
