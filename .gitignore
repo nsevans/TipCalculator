@@ -2,6 +2,7 @@ __pycache__/
 build/
 dist/
 src/__pycache__/
+src/config/settings_default.json
 src/Tip\ Calculator.exe
 "src/Tip Calculator.exe"
 src/common/__pycache__/
@@ -9,3 +10,4 @@ src/resources/
 "Tip Calculator.spec"
 Tip\ Calculator.spec
 TODO.txt
+.vscode
